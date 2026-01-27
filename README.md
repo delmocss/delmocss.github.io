@@ -1,11 +1,15 @@
 
-  # Web Portfolio for CV
+# delmocss.github.io
 
-  This is a code bundle for Web Portfolio for CV.
+Este es el código fuente de mi portfolio personal.
 
-  ## Running the code
+## Cómo ejecutar el proyecto
 
-  Run `npm i` to install the dependencies.
-
-  Run `npm run dev` to start the development server.
-  
+1. Instala las dependencias:
+  ```
+  npm install
+  ```
+2. Inicia el servidor de desarrollo:
+  ```
+  npm run dev
+  ```
