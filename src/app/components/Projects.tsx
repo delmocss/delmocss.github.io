@@ -21,12 +21,12 @@ const projects: Project[] = [
     repoUrl: 'https://github.com/delmocss/client-project-management-app'
   },
   {
-    title: 'Booking SaaS Platform',
-    description: 'Plataforma SaaS para la gestión de reservas con panel de usuario y administración. Facilita la creación y gestión de reservas, servicios y disponibilidad desde una interfaz moderna y segura.',
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop',
-    techStack: ['Next.js', 'Node.js', 'MongoDB'],
-    demoUrl: 'https://demo2.com',
-    repoUrl: 'https://github.com/tuusuario/proyecto2'
+    title: 'Slotify - Booking SaaS Platform',
+    description: 'Plataforma de reservas full-stack diseñada con enfoque SaaS para pequeños negocios. Incluye generación inteligente de disponibilidad, sistema de reservas y cancelaciones públicas seguras, panel de control con métricas y exportación de datos.',
+    image: 'img/slotify.png',
+    techStack: ['Node.js + Express', 'PostgreSQL', 'TanStack React Query'],
+    demoUrl: 'https://slotify-client-theta.vercel.app/',
+    repoUrl: 'https://github.com/delmocss/slotify'
   },
   {
     title: 'Proyecto 3 - Nuevo',
