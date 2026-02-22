@@ -15,7 +15,7 @@ const projects: Project[] = [
   {
     title: 'Project Management App',
     description: 'Aplicación web para la gestión de proyectos y tareas, pensada como herramienta interna de equipo. Permite organizar proyectos, gestionar tareas y controlar el progreso de forma clara y estructurada.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
+    image: 'img/client_management_app.png',
     techStack: ['React', 'TypeScript', 'Tailwind CSS'],
     demoUrl: 'https://client-project-management-app.vercel.app/',
     repoUrl: 'https://github.com/delmocss/client-project-management-app'
