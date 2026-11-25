@@ -4,14 +4,14 @@
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
-  --color-bg: #0a0d12;
-  --color-surface: #10151d;
-  --color-surface-2: #151b25;
-  --color-line: #1f2733;
-  --color-fg: #e8edf4;
-  --color-muted: #93a0b3;
-  --color-accent: #5eead4;
-  --color-accent-strong: #2dd4bf;
+  --color-bg: #faf6f0;
+  --color-surface: #fffdf9;
+  --color-surface-2: #f3ebdf;
+  --color-line: #e3d5c3;
+  --color-fg: #2b2118;
+  --color-muted: #6b5a4a;
+  --color-accent: #9a5b2e;
+  --color-accent-strong: #7c4521;
 }
 
 html {
@@ -28,24 +28,24 @@ body {
 }
 
 ::selection {
-  background: rgba(94, 234, 212, 0.25);
+  background: rgba(154, 91, 46, 0.22);
 }
 
 .bg-grid {
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    linear-gradient(to right, rgba(107, 74, 46, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(107, 74, 46, 0.07) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, #000 30%, transparent 100%);
   -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, #000 30%, transparent 100%);
 }
 
 .glow {
-  background: radial-gradient(circle at center, rgba(94, 234, 212, 0.16), transparent 65%);
+  background: radial-gradient(circle at center, rgba(154, 91, 46, 0.13), transparent 65%);
 }
 
 .text-gradient {
-  background: linear-gradient(90deg, #5eead4, #7dd3fc);
+  background: linear-gradient(90deg, #8a4f26, #b5793f);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

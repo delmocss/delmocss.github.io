@@ -99,7 +99,7 @@ export default function Hero() {
           className="relative"
         >
           <div className="glow absolute -inset-10 -z-10" />
-          <div className="overflow-hidden rounded-2xl border border-line bg-surface/90 shadow-2xl shadow-black/40 backdrop-blur">
+          <div className="overflow-hidden rounded-2xl border border-line bg-surface/90 shadow-xl shadow-[#6b4a2e]/15 backdrop-blur">
             <div className="flex items-center gap-2 border-b border-line bg-surface-2 px-4 py-3">
               <span className="h-3 w-3 rounded-full bg-[#ff5f57]/80" />
               <span className="h-3 w-3 rounded-full bg-[#febc2e]/80" />
