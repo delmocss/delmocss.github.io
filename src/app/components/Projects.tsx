@@ -9,32 +9,26 @@ interface Project {
   techStack: string[];
   demoUrl: string;
   repoUrl: string;
+  apiUrl?: string;
 }
 
 const projects: Project[] = [
   {
-    title: 'Project Management App',
-    description: 'Aplicación web para la gestión de proyectos y tareas, pensada como herramienta interna de equipo. Permite organizar proyectos, gestionar tareas y controlar el progreso de forma clara y estructurada.',
-    image: 'img/client_management_app.png',
-    techStack: ['React', 'TypeScript', 'Tailwind CSS'],
-    demoUrl: 'https://client-project-management-app.vercel.app/',
-    repoUrl: 'https://github.com/delmocss/client-project-management-app'
+    title: 'Enlaza: facturación electrónica multi-empresa',
+    description: 'API REST con numeración de facturas sin huecos (bloqueo pesimista, probada con 10 hilos concurrentes), cadena de integridad SHA-256 entre facturas, JWT con rotación de refresh tokens y 81 tests contra PostgreSQL real con CI en cada push.',
+    image: 'img/enlaza.png',
+    techStack: ['Java 21', 'Spring Boot', 'PostgreSQL', 'Testcontainers'],
+    demoUrl: 'https://enlaza-frontend.vercel.app',
+    repoUrl: 'https://github.com/delmocss/enlaza',
+    apiUrl: 'https://enlaza-api-th30.onrender.com/swagger-ui.html'
   },
   {
-    title: 'Slotify - Booking SaaS Platform',
-    description: 'Plataforma de reservas full-stack diseñada con enfoque SaaS para pequeños negocios. Incluye generación inteligente de disponibilidad, sistema de reservas y cancelaciones públicas seguras, panel de control con métricas y exportación de datos.',
+    title: 'Slotify: reservas para pequeños negocios',
+    description: 'Plataforma de reservas multi-tenant con generación de disponibilidad, reservas y cancelaciones públicas seguras, y panel con métricas. Frontend en React y TypeScript, API en Node.js y PostgreSQL.',
     image: 'img/slotify.png',
-    techStack: ['Node.js + Express', 'PostgreSQL', 'TanStack React Query'],
+    techStack: ['TypeScript', 'React', 'Node.js', 'PostgreSQL'],
     demoUrl: 'https://slotify-client-theta.vercel.app/',
     repoUrl: 'https://github.com/delmocss/slotify'
-  },
-  {
-    title: 'Proyecto 3 - Nuevo',
-    description: '[Describe tu tercer proyecto. Resalta las características únicas y el valor que aporta]',
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=600&fit=crop',
-    techStack: ['Vue.js', 'Express', 'PostgreSQL'],
-    demoUrl: 'https://demo3.com',
-    repoUrl: 'https://github.com/tuusuario/proyecto3'
   }
 ];
 
@@ -95,6 +89,18 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             <ExternalLink className="w-4 h-4" />
             Demo
           </motion.a>
+          {project.apiUrl && (
+            <motion.a
+              href={project.apiUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ x: 5 }}
+              className="flex items-center gap-2 text-sm font-medium text-[var(--color-primary)] hover:text-[var(--color-accent)] transition-colors"
+            >
+              <ExternalLink className="w-4 h-4" />
+              API (Swagger)
+            </motion.a>
+          )}
           <motion.a
             href={project.repoUrl}
             target="_blank"
@@ -126,11 +132,11 @@ export default function Projects() {
         >
           <h2 className="mb-4">Proyectos Destacados</h2>
           <p className="text-lg max-w-2xl mx-auto leading-relaxed">
-            Una selección de proyectos que demuestran mis habilidades técnicas y creatividad
+            Dos proyectos desplegados, con demo y código abierto
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {projects.map((project, index) => (
             <ProjectCard key={project.title} project={project} index={index} />
           ))}

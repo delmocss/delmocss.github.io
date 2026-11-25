@@ -3,10 +3,10 @@ import { useRef } from 'react';
 import { Code2, Database, Palette, Rocket } from 'lucide-react';
 
 const technologies = [
-  { name: 'React', category: 'Frontend', icon: Code2 },
-  { name: 'TypeScript', category: 'Language', icon: Code2 },
-  { name: 'Node.js', category: 'Backend', icon: Database },
-  { name: 'Tailwind CSS', category: 'Styling', icon: Palette },
+  { name: 'Java 21 · Spring Boot · Spring Security', category: 'Backend', icon: Code2 },
+  { name: 'PostgreSQL · Flyway', category: 'Datos', icon: Database },
+  { name: 'JUnit 5 · Mockito · Testcontainers', category: 'Testing', icon: Palette },
+  { name: 'Docker · GitHub Actions', category: 'DevOps · También React, TypeScript y Node.js', icon: Code2 },
 ];
 
 export default function About() {
@@ -31,10 +31,10 @@ export default function About() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <p className="text-lg mb-6 leading-relaxed">
-              Soy Frontend Developer Junior con formación en DAM y DAW, especializado en el desarrollo de interfaces web modernas, responsive y bien estructuradas. Trabajo principalmente con React y TypeScript, cuidando el código limpio, mantenible y una buena experiencia de usuario.
+              Tengo los ciclos de DAM y DAW y estudio el Grado en Ingeniería Matemática. Me interesa construir APIs que no fallen: concurrencia, seguridad y tests contra bases de datos reales.
             </p>
             <p className="text-lg mb-8 leading-relaxed">
-              Me apasiona convertir ideas en productos web funcionales, prestando atención tanto al diseño como a la lógica que hay detrás. Disfruto especialmente del consumo de APIs REST, la gestión de estado y la integración de frontend con backend para crear aplicaciones completas y realistas, algo que reflejo en los proyectos que desarrollo.
+              Busco mi primer puesto como desarrollador backend o full-stack Java en Madrid (presencial, híbrido o remoto).
             </p>
 
             <motion.div 
@@ -43,7 +43,7 @@ export default function About() {
             >
               <Rocket className="w-6 h-6 text-[var(--color-primary)] flex-shrink-0" />
               <p className="text-[var(--color-text)] font-medium">
-                Enfocado en crear experiencias web elegantes y funcionales
+                Primer puesto como desarrollador backend o full-stack Java
               </p>
             </motion.div>
           </motion.div>

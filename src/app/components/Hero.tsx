@@ -35,7 +35,7 @@ export default function Hero() {
           className="text-xl md:text-2xl mb-8 font-medium"
           style={{ color: 'var(--color-text-secondary)' }}
         >
-          Frontend Developer
+          Desarrollador Backend Junior · Java · Spring Boot
         </motion.p>
 
         <motion.div

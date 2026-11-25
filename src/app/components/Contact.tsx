@@ -14,7 +14,7 @@ const contactMethods = [
     icon: Linkedin,
     label: 'LinkedIn',
     value: 'Sergio Del Moral',
-    href: 'https://linkedin.com/in/sergio-del-moral-carrillo-6619b7234',
+    href: 'https://www.linkedin.com/in/sergio-del-moral-carrillo/',
     color: '#0A66C2'
   },
   {
@@ -41,7 +41,7 @@ export default function Contact() {
         >
           <h2 className="mb-4">Contacto</h2>
           <p className="text-lg max-w-2xl mx-auto leading-relaxed">
-            ¿Tienes un proyecto en mente? Hablemos y hagámoslo realidad
+            ¿Tienes una vacante junior de backend o full-stack Java? Escríbeme
           </p>
         </motion.div>
 
@@ -92,7 +92,7 @@ export default function Contact() {
             <Send className="w-12 h-12 text-[var(--color-primary)] mx-auto mb-4" />
           </motion.div>
           <p className="text-lg mb-4 font-medium text-[var(--color-text)]">
-            Disponible para proyectos freelance y oportunidades laborales
+            Disponible para incorporación inmediata en Madrid (presencial, híbrido o remoto)
           </p>
           <p className="text-sm font-medium text-[var(--color-text-secondary)]">
             Tiempo de respuesta: 24-48 horas
