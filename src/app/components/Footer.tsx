@@ -1,24 +1,13 @@
-import { motion } from 'motion/react';
-import { Heart, ArrowUp } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="relative py-12 px-6 md:px-12 lg:px-24 bg-[var(--color-text)] text-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-center items-center gap-6">
-          <motion.a
-            href="#"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            whileHover={{ y: -5, scale: 1.1 }}
-            transition={{ duration: 0.3 }}
-            className="flex items-center gap-2 text-sm font-medium hover:text-[var(--color-secondary)] transition-colors"
-          >
-            Volver arriba <ArrowUp className="w-4 h-4" />
-          </motion.a>
-        </div>
+    <footer className="border-t border-line px-6 py-8">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-sm text-muted sm:flex-row">
+        <p>© {new Date().getFullYear()} Sergio Del Moral · Hecho con React, TypeScript y Tailwind</p>
+        <a href="#" className="inline-flex items-center gap-1.5 transition-colors hover:text-fg">
+          Volver arriba <ArrowUp className="h-4 w-4" />
+        </a>
       </div>
     </footer>
   );

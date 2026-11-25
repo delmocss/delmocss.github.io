@@ -1,81 +1,71 @@
-import { motion, useInView } from 'motion/react';
-import { useRef } from 'react';
-import { Code2, Database, Palette, Rocket } from 'lucide-react';
+import { Briefcase, GraduationCap } from 'lucide-react';
+import Reveal, { SectionLabel } from './Reveal';
 
-const technologies = [
-  { name: 'Java 21 · Spring Boot · Spring Security', category: 'Backend', icon: Code2 },
-  { name: 'PostgreSQL · Flyway', category: 'Datos', icon: Database },
-  { name: 'JUnit 5 · Mockito · Testcontainers', category: 'Testing', icon: Palette },
-  { name: 'Docker · GitHub Actions', category: 'DevOps · También React, TypeScript y Node.js', icon: Code2 },
+const timeline = [
+  {
+    when: '2026 – actualidad',
+    title: 'Grado en Ingeniería Matemática',
+    place: 'Universidad del Atlántico Medio (online)',
+    icon: GraduationCap,
+  },
+  {
+    when: '2024 – 2025',
+    title: 'CFGS Desarrollo de Aplicaciones Web',
+    place: 'IES Valle del Miro · nota media 8',
+    icon: GraduationCap,
+  },
+  {
+    when: 'sept. – dic. 2023',
+    title: 'Programador en prácticas',
+    place: 'Gomez Group Metering · Java, Spring Boot y TypeScript en la web corporativa',
+    icon: Briefcase,
+  },
+  {
+    when: '2021 – 2023',
+    title: 'CFGS Desarrollo de Aplicaciones Multiplataforma',
+    place: 'IES Federica Montseny · nota media 8',
+    icon: GraduationCap,
+  },
 ];
 
 export default function About() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-
   return (
-    <section id="about" className="relative py-32 px-6 md:px-12 lg:px-24">
-      <div className="max-w-7xl mx-auto" ref={ref}>
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="mb-16">Sobre mí</h2>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 gap-16 items-start">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <p className="text-lg mb-6 leading-relaxed">
-              Tengo los ciclos de DAM y DAW y estudio el Grado en Ingeniería Matemática. Me interesa construir APIs que no fallen: concurrencia, seguridad y tests contra bases de datos reales.
+    <section id="about" className="px-6 py-24">
+      <div className="mx-auto grid max-w-6xl gap-16 lg:grid-cols-2">
+        <Reveal>
+          <SectionLabel index="01" title="Sobre mí" />
+          <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
+            Backend con criterio, probado de verdad
+          </h2>
+          <div className="mt-6 space-y-4 text-lg leading-relaxed text-muted">
+            <p>
+              Tengo los ciclos de DAM y DAW y estudio el Grado en Ingeniería Matemática. Me interesa construir APIs
+              que no fallan: concurrencia, seguridad y tests contra bases de datos reales, no simuladas.
             </p>
-            <p className="text-lg mb-8 leading-relaxed">
-              Busco mi primer puesto como desarrollador backend o full-stack Java en Madrid (presencial, híbrido o remoto).
+            <p>
+              Mis dos proyectos están desplegados, con demo pública, CI y código abierto. Busco mi primer puesto como
+              desarrollador backend o full-stack Java en Madrid (presencial, híbrido o remoto).
             </p>
+          </div>
+        </Reveal>
 
-            <motion.div 
-              className="flex items-center gap-4 mt-8 p-4 bg-white/70 backdrop-blur-sm rounded-sm border-l-4 border-[var(--color-primary)] shadow-sm"
-              whileHover={{ x: 10 }}
-            >
-              <Rocket className="w-6 h-6 text-[var(--color-primary)] flex-shrink-0" />
-              <p className="text-[var(--color-text)] font-medium">
-                Primer puesto como desarrollador backend o full-stack Java
-              </p>
-            </motion.div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="space-y-4"
-          >
-            <h3 className="mb-6">Tecnologías</h3>
-            {technologies.map((tech, index) => {
-              const Icon = tech.icon;
+        <Reveal delay={0.15}>
+          <ol className="relative space-y-8 border-l border-line pl-8">
+            {timeline.map((t) => {
+              const Icon = t.icon;
               return (
-                <motion.div
-                  key={tech.name}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
-                  transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                  whileHover={{ x: 10, boxShadow: '0 10px 30px rgba(107, 88, 71, 0.15)' }}
-                  className="flex items-center gap-4 p-5 bg-white/80 backdrop-blur-sm rounded-sm border border-[var(--color-border)] shadow-sm"
-                >
-                  <Icon className="w-6 h-6 text-[var(--color-primary)]" />
-                  <div>
-                    <p className="font-semibold text-[var(--color-text)]">{tech.name}</p>
-                    <p className="text-sm text-[var(--color-text-secondary)]">{tech.category}</p>
-                  </div>
-                </motion.div>
+                <li key={t.title} className="relative">
+                  <span className="absolute -left-[45px] flex h-8 w-8 items-center justify-center rounded-full border border-line bg-surface">
+                    <Icon className="h-4 w-4 text-accent" />
+                  </span>
+                  <p className="font-mono text-xs text-accent">{t.when}</p>
+                  <h3 className="mt-1 text-lg font-medium text-fg">{t.title}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-muted">{t.place}</p>
+                </li>
               );
             })}
-          </motion.div>
-        </div>
+          </ol>
+        </Reveal>
       </div>
     </section>
   );

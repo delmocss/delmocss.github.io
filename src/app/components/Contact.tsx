@@ -1,104 +1,52 @@
-import { motion, useInView } from 'motion/react';
-import { useRef } from 'react';
-import { Mail, Linkedin, Github, Send } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
+import Reveal, { SectionLabel } from './Reveal';
 
-const contactMethods = [
-  {
-    icon: Mail,
-    label: 'Email',
-    value: 'delmoralcs@gmail.com',
-    href: 'mailto:delmoralcs@gmail.com',
-    color: '#6B5847'
-  },
-  {
-    icon: Linkedin,
-    label: 'LinkedIn',
-    value: 'Sergio Del Moral',
-    href: 'https://www.linkedin.com/in/sergio-del-moral-carrillo/',
-    color: '#0A66C2'
-  },
-  {
-    icon: Github,
-    label: 'GitHub',
-    value: '@delmocss',
-    href: 'https://github.com/delmocss',
-    color: '#1A1A1A'
-  }
+const links = [
+  { icon: Linkedin, label: 'LinkedIn', value: 'sergio-del-moral-carrillo', href: 'https://www.linkedin.com/in/sergio-del-moral-carrillo/' },
+  { icon: Github, label: 'GitHub', value: 'delmocss', href: 'https://github.com/delmocss' },
 ];
 
 export default function Contact() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-
   return (
-    <section id="contact" className="relative py-32 px-6 md:px-12 lg:px-24 bg-gradient-to-b from-transparent via-[var(--color-secondary)]/5 to-[var(--color-secondary)]/10">
-      <div className="max-w-6xl mx-auto" ref={ref}>
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="mb-4">Contacto</h2>
-          <p className="text-lg max-w-2xl mx-auto leading-relaxed">
-            ¿Tienes una vacante junior de backend o full-stack Java? Escríbeme
-          </p>
-        </motion.div>
+    <section id="contact" className="px-6 pb-28 pt-24">
+      <Reveal className="mx-auto max-w-4xl">
+        <div className="relative overflow-hidden rounded-3xl border border-line bg-surface px-8 py-16 text-center md:px-16">
+          <div className="glow pointer-events-none absolute -top-40 left-1/2 h-80 w-[40rem] -translate-x-1/2" />
+          <div className="relative">
+            <SectionLabel index="04" title="Contacto" />
+            <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">¿Tienes una vacante junior?</h2>
+            <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-muted">
+              Busco mi primer puesto como desarrollador backend o full-stack Java en Madrid, con incorporación
+              inmediata. Escríbeme y te respondo en 24-48 horas.
+            </p>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {contactMethods.map((method, index) => {
-            const Icon = method.icon;
-            return (
-              <motion.a
-                key={method.label}
-                href={method.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                whileHover={{ y: -10, boxShadow: '0 20px 40px rgba(107, 88, 71, 0.2)' }}
-                className="group p-8 bg-white rounded-sm border-2 border-[var(--color-border)] hover:border-[var(--color-primary)] shadow-md transition-all duration-300"
-              >
-                <motion.div
-                  whileHover={{ rotate: 360, scale: 1.2 }}
-                  transition={{ duration: 0.6 }}
-                  className="inline-block mb-4"
-                >
-                  <Icon 
-                    className="w-8 h-8" 
-                    style={{ color: method.color }}
-                  />
-                </motion.div>
-                <h3 className="mb-2 text-lg font-semibold">{method.label}</h3>
-                <p className="text-sm font-medium text-[var(--color-text-secondary)] group-hover:text-[var(--color-primary)] transition-colors">
-                  {method.value}
-                </p>
-              </motion.a>
-            );
-          })}
+            <a
+              href="mailto:delmoralcs@gmail.com"
+              className="mt-9 inline-flex items-center gap-2.5 rounded-lg bg-accent px-7 py-3.5 font-semibold text-bg transition-colors hover:bg-accent-strong"
+            >
+              <Mail className="h-5 w-5" /> delmoralcs@gmail.com
+            </a>
+
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              {links.map((l) => {
+                const Icon = l.icon;
+                return (
+                  <a
+                    key={l.label}
+                    href={l.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2.5 rounded-lg border border-line bg-surface-2 px-5 py-3 text-sm text-fg transition-colors hover:border-accent/50"
+                  >
+                    <Icon className="h-4 w-4 text-accent" />
+                    <span className="text-muted">{l.label}</span> {l.value}
+                  </a>
+                );
+              })}
+            </div>
+          </div>
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-center p-10 bg-white/80 backdrop-blur-sm rounded-sm border-2 border-[var(--color-border)] shadow-lg"
-        >
-          <motion.div
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
-            <Send className="w-12 h-12 text-[var(--color-primary)] mx-auto mb-4" />
-          </motion.div>
-          <p className="text-lg mb-4 font-medium text-[var(--color-text)]">
-            Disponible para incorporación inmediata en Madrid (presencial, híbrido o remoto)
-          </p>
-          <p className="text-sm font-medium text-[var(--color-text-secondary)]">
-            Tiempo de respuesta: 24-48 horas
-          </p>
-        </motion.div>
-      </div>
+      </Reveal>
     </section>
   );
 }
